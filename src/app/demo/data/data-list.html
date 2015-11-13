@@ -1,0 +1,55 @@
+
+<div class="container"
+     seo-page-title="Data Entries {{ form.name }} - angular-form-gen"
+     seo-page-description="An example list of data entries made with the schema of {{ form.name }}."
+     seo-page-keywords-add="data, data-entries">
+
+  <div form-breadcrumb></div>
+  
+  <h1>{{ form.name }} Data Entries</h1>
+  <p>
+    These are the data entries associated with the form <em>{{ form.name }}</em>.
+  </p>
+  <ul>
+    <li>Click on the <em>New</em> button to enter a new data entry using the associated form schema.</li>
+    <li>Click on the <em>Edit</em> button to edit an exiting data entry using the associated form schema.</li>
+  </ul>
+  <div fg-tabs class="app-demo-tabs auto-x">
+
+    <div fg-tabs-pane="Data List">
+      <table class="table table-bordered table-responsive app-table-form-list">
+        <tr>
+          <th ng-repeat="field in form.schema.fields">{{ field.displayName || field.name }}</th>
+          <th class="app-demo-data-table-btn-group">
+            <div class="btn-group btn-group-sm pull-right">
+              <button ng-click="addData()" app-table-button="plus">New</button>
+            </div>
+          </th>
+        </tr>
+
+        <tr ng-if="!dataEntries.length">
+          <td colspan="100%">
+            <div class="alert alert-info">
+              The form <strong>{{ form.name }}</strong> has no data entries. Click <a href="" ng-click="addData()">here</a> to add new data.
+            </div>
+          </td>
+        </tr>
+
+        <tr ng-repeat="dataEntry in dataEntries">
+          <td ng-repeat="field in form.schema.fields">{{ dataEntry[field.name] }}</td>
+          <td>
+            <div class="btn-group btn-group-sm pull-right">
+              <button ng-click="editData(dataEntry)" app-table-button="pencil">Edit</button>
+              <button ng-click="removeData(dataEntry)" app-table-button="trash" class="btn btn-danger">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div fg-tabs-pane="Debug">
+      <div jsonify="dataEntries"></div>
+    </div>
+  </div>
+
+</div>
