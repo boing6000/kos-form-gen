@@ -1,5 +1,5 @@
 <div fg-tabs-pane="Properties">
-  <div fg-property-field-common="{ fieldname: true, displayname: true, tooltip: true }"></div>
+  <div fg-property-field-common="{ fieldname: false, displayname: true, tooltip: true }"></div>
 </div>
 <div fg-tabs-pane="Options">
   <div fg-property-field-options="multiple"></div>
@@ -9,11 +9,11 @@
 
   <div class="fg-property-field-validation">
     <div fg-property-field="minoptions"
-         fg-property-field-label="Minimum options">
+         fg-property-field-label="Mínimo">
       <input type="text"
              fg-field-redraw
              fg-input-number
-             title="The minimum number of options that should be selected."
+             title="O número mínimo de opções que deve ser seleccionado."
              name="minoptions"
              ng-model="field.validation.minoptions"
              class="form-control"/>
@@ -26,11 +26,11 @@
 
   <div class="fg-property-field-validation">
     <div fg-property-field="maxoptions"
-         fg-property-field-label="Maximum options">
+         fg-property-field-label="Máximo">
       <input type="text"
              fg-field-redraw
              fg-input-number
-             title="The maximum number of options that can be selected."
+             title="O número máximo de opções que podem ser seleccionadas."
              name="maxoptions"
              ng-model="field.validation.maxoptions"
              class="form-control"/>

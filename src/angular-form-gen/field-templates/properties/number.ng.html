@@ -1,6 +1,6 @@
 <div fg-tabs-pane="Properties">
   <div
-      fg-property-field-common="{ fieldname: true, displayname: true, placeholder: true, tooltip: true }"></div>
+      fg-property-field-common="{ fieldname: false, displayname: true, placeholder: true, tooltip: true }"></div>
 
   <div fg-property-field-value>
     <input fg-input-number
@@ -21,13 +21,13 @@
   <!-- min -->
   <div class="fg-property-field-validation">
     <div fg-property-field="min"
-         fg-property-field-label="Minimum value">
+         fg-property-field-label="Mínimo">
       <input fg-input-number
              fg-field-redraw
              class="form-control"
              type="text"
              name="min"
-             title="The minimum value that should be entered"
+             title="O valor mínimo que deve ser digitado"
              ng-model="field.validation.min"/>
     </div>
 
@@ -39,13 +39,13 @@
   <!-- max -->
   <div class="fg-property-field-validation">
     <div fg-property-field="max"
-         fg-property-field-label="Maximum value">
+         fg-property-field-label="Máximo">
       <input fg-input-number
              fg-field-redraw
              class="form-control"
              type="text"
              name="max"
-             title="The maximum value that should be entered"
+             title="O valor máximo que deve ser digitado"
              ng-model="field.validation.max"/>
     </div>
 

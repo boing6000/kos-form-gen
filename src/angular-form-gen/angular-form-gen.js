@@ -152,17 +152,17 @@ fg.config(function (fgConfigProvider, FgField) {
   // - - - - - - - - - - - - - - - - - - - - - -
 
   fgConfigProvider.validation.message({
-    required: 'A value is required for this field.',
-    minlength: 'The value does not match the minimum length{{ field.schema && (" of " + field.schema.validation.minlength + " characters" || "")}}.',
-    maxlength: 'The value exceeds the maximum length{{ field.schema && (" of " + field.schema.validation.maxlength + " characters" || "")}}.',
-    pattern: 'The value "{{ field.state.$viewValue }}" does not match the required format.',
-    email: 'The value "{{ field.state.$viewValue }}" is not a valid email address.',
-    unique: 'The value "{{ field.state.$viewValue }}" is already in use.',
-    number: 'The value "{{ field.state.$viewValue }}" is not a number.',
-    min: 'The value {{ field.schema && ("should be at least " + field.schema.validation.min) || field.state.$viewValue + " is too low" }}',
-    max: 'The value {{ field.schema && ("should be less than " + field.schema.validation.max) || field.state.$viewValue + " is too high" }}',
-    minoptions: 'At least {{ field.schema.validation.minoptions }} option(s) should be selected.',
-    maxoptions: 'No more than {{ field.schema.validation.maxoptions }} option(s) should be selected.'
+    required: 'Um valor é necessário para este campo.',
+    minlength: 'O valor não coincide com o comprimento mínimo{{ field.schema && (" de " + field.schema.validation.minlength + " caracteres" || "")}}.',
+    maxlength: 'O valor excede o comprimento máximo{{ field.schema && (" de " + field.schema.validation.maxlength + " caracteres" || "")}}.',
+    pattern: 'O valor "{{ field.state.$viewValue }}" não coincide com o formato exigido.',
+    email: 'O valor "{{ field.state.$viewValue }}" não é um endereço de email válido.',
+    unique: 'O valor "{{ field.state.$viewValue }}" já está em uso.',
+    number: 'O valor "{{ field.state.$viewValue }}" não é um número.',
+    min: 'O valor {{ field.schema && ("deve ser de pelo menos " + field.schema.validation.min) || field.state.$viewValue + " é muito baixo" }}',
+    max: 'O valor {{ field.schema && ("deve ser de pelo menos " + field.schema.validation.max) || field.state.$viewValue + " é muito alto" }}',
+    minoptions: 'Pelo menos {{ field.schema.validation.minoptions }} opção(ões) devem ser seleccionados.',
+    maxoptions: 'Não mais que {{ field.schema.validation.maxoptions }} opção(ões) devem ser seleccionados.'
   });
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -170,7 +170,7 @@ fg.config(function (fgConfigProvider, FgField) {
   // - - - - - - - - - - - - - - - - - - - - - -
 
   var categories = {
-    'Text input fields': [
+    'Campos de Texto': [
       new FgField('text', {
         displayName: 'Textbox'
       }),
@@ -181,22 +181,22 @@ fg.config(function (fgConfigProvider, FgField) {
       new FgField('password'),
       new FgField('textarea')
     ],
-    'Checkbox fields': [
+    'Campos de Checkbox': [
       new FgField('checkbox', { nolabel: true }),
       new FgField('checkboxlist', {
-        displayName: 'Checkbox List',
+        displayName: 'Lista Checkbox',
         options: [
           {
             value: '1',
-            text: 'Option 1'
+            text: 'opção 1'
           },
           {
             value: '2',
-            text: 'Option 2'
+            text: 'opção 2'
           },
           {
             value: '3',
-            text: 'Option 3'
+            text: 'opção 3'
           }
         ],
         value: {
@@ -205,43 +205,43 @@ fg.config(function (fgConfigProvider, FgField) {
         }
       })
     ],
-    'Select input fields': [
+    'Campos de Seletores': [
       new FgField('radiobuttonlist', {
-        displayName: 'Radiobutton List',
+        displayName: 'Lista Radiobutton',
         options: [
           {
             value: '1',
-            text: 'Option 1'
+            text: 'opção 1'
           },
           {
             value: '2',
-            text: 'Option 2'
+            text: 'opção 2'
           },
           {
             value: '3',
-            text: 'Option 3'
+            text: 'opção 3'
           }
         ],
         value: '1'
       }),
       new FgField('selectlist', {
-        displayName: 'Select List',
+        displayName: 'Lista Select',
         options: [
           {
             value: '',
-            text: 'Select an option'
+            text: 'Selecione uma opção'
           },
           {
             value: '1',
-            text: 'Option 1'
+            text: 'opção 1'
           },
           {
             value: '2',
-            text: 'Option 2'
+            text: 'opção 2'
           },
           {
             value: '3',
-            text: 'Option 3'
+            text: 'opção 3'
           }
         ],
         value: ''
@@ -274,18 +274,18 @@ fg.config(function (fgConfigProvider, FgField) {
   // - - - - - - - - - - - - - - - - - - - - - -
 
   fgConfigProvider.validation.pattern({
-    'None': undefined,
+    'Nenhum': undefined,
     'Url': '/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/',
-    'Domain': '/^([a-z][a-z0-9\\-]+(\\.|\\-*\\.))+[a-z]{2,6}$/',
-    'IPv4 Address': '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
-    'Email Address': '/^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$/',
-    'Integer': '/^-{0,1}\\d+$/',
-    'Positive Integers': '/^\\d+$/',
-    'Negative Integers': '/^-\\d+$/',
-    'Number': '/^-{0,1}\\d*\\.{0,1}\\d+$/',
-    'Positive Number': '/^\\d*\\.{0,1}\\d+$/',
-    'Negative Number': '/^-\\d*\\.{0,1}\\d+$/',
-    'Year (1920-2099)': '/^(19|20)[\\d]{2,2}$/',
-    'Password': '/(?=.*\\d)(?=.*[!@#$%^&*\\-=()|?.\"\';:]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$/'
+    'Domínio': '/^([a-z][a-z0-9\\-]+(\\.|\\-*\\.))+[a-z]{2,6}$/',
+    'Endereço IPv4': '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
+    'Email': '/^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$/',
+    'Inteiro': '/^-{0,1}\\d+$/',
+    'Inteiro Positivo': '/^\\d+$/',
+    'Inteiro Negativo': '/^-\\d+$/',
+    'Número': '/^-{0,1}\\d*\\.{0,1}\\d+$/',
+    'Número Positivo': '/^\\d*\\.{0,1}\\d+$/',
+    'Número Negativo': '/^-\\d*\\.{0,1}\\d+$/',
+    'Ano (1920-2099)': '/^(19|20)[\\d]{2,2}$/',
+    'Senha': '/(?=.*\\d)(?=.*[!@#$%^&*\\-=()|?.\"\';:]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$/'
   });
 });
