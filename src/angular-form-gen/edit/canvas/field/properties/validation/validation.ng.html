@@ -5,11 +5,11 @@
 <!-- minlength -->
 <div ng-if="fields.minlength" class="fg-property-field-validation">
   <div fg-property-field="minlength"
-       fg-property-field-label="Minimum length">
+       fg-property-field-label="Comprimento Mínimo">
     <input type="text"
            fg-field-redraw
            fg-input-number
-           title="The minimum length of characters that should be entered."
+           title="O comprimento mínimo de caracteres que deve ser digitado."
        		 name="minlength"
        		 ng-model="field.validation.minlength"
            class="form-control"/>
@@ -23,11 +23,11 @@
 <!-- maxlength -->
 <div ng-if="fields.maxlength" class="fg-property-field-validation">
   <div fg-property-field="maxlength"
-       fg-property-field-label="Maximum length">
+       fg-property-field-label="Comprimento Máximo">
     <input type="text"
            fg-field-redraw
            fg-input-number
-           title="The maximum length of characters that should be entered."
+           title="O comprimento máximo de caracteres que deve ser digitado."
            name="maxlength"
            ng-model="field.validation.maxlength"
            class="form-control"/>
@@ -41,10 +41,10 @@
 <!-- pattern -->
 <div ng-if="fields.pattern" class="fg-property-field-validation">
   <div fg-property-field="pattern"
-       fg-property-field-label="Pattern">
+       fg-property-field-label="Modelo">
     <div fg-dropdown-input="patternOptions"
          name="pattern"
-         title="The pattern that should match with the input value."
+         title="O modelo que deve coincidir com o valor de entrada."
          fg-parse-pattern
          fg-field-redraw
          ng-model="field.validation.pattern"></div>
@@ -59,8 +59,8 @@
 <div ng-if="fields.required" class="fg-property-field-validation">
   <div fg-property-field="required">
     <div class="checkbox">
-      <label title="Indicates if a value is required for this field.">
-        <input type="checkbox" ng-model="field.validation.required" />Required
+      <label title="Indica se é necessário um valor para este campo.">
+        <input type="checkbox" ng-model="field.validation.required" />Requerido
       </label>
     </div>
   </div>
