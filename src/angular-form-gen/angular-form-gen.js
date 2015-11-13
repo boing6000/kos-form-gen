@@ -172,13 +172,16 @@ fg.config(function (fgConfigProvider, FgField) {
   var categories = {
     'Campos de Texto': [
       new FgField('text', {
-        displayName: 'Textbox'
+        displayName: 'Campo de Texto'
       }),
       new FgField('email'),
       new FgField('number', {
+		  displayName: 'Número',
         validation: { maxlength: 15 /* to prevent > Number.MAX_VALUE */ }
       }),
-      new FgField('password'),
+      new FgField('password', {
+		  displayName: 'Senha'
+	  }),
       new FgField('textarea')
     ],
     'Campos de Checkbox': [
