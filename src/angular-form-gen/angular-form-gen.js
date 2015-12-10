@@ -174,6 +174,10 @@ fg.config(function (fgConfigProvider, FgField) {
       new FgField('text', {
         displayName: 'Campo de Texto'
       }),
+      new FgField('text', {
+        displayName: 'Telefone',
+        mask: 'ui-br-phone-number'
+      }),
       new FgField('email'),
       new FgField('number', {
 		  displayName: 'Número',

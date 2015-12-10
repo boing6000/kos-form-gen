@@ -30,6 +30,16 @@
   </div>
 </div>
 
+<!-- displayName -->
+<div ng-if="fields.mask">
+  <div fg-property-field="mask" fg-property-field-label="Máscara de Exibição">
+    <select class="form-control" name="mask" ng-model="field.mask">
+      <option value="">Selecione</option>
+      <option value="ui-br-phone-number">Telefone</option>
+    </select>
+  </div>
+</div>
+
 <!-- placeholder -->
 <div ng-if="fields.placeholder">
   <div fg-property-field="fieldPlaceholder" fg-property-field-label="Texto do Placeholder">
