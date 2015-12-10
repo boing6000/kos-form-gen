@@ -165,7 +165,16 @@ fg.config(function (fgConfigProvider, FgField) {
         maxoptions: 'Não mais que {{ field.schema.validation.maxoptions }} opção(ões) devem ser seleccionados.',
 
         //ui-mask
-        "ng-invalid-br-phone-number": "Telefone inválido!"
+        "brPhoneNumber": "Telefone inválido.",
+        'nfeAccessKey': "Número Nota Fiscal inválido.",
+        'ie': "Inscrição Estadual inválido.",
+        'cpf': "CPF inválido.",
+        'cnpj': "CNPJ inválido",
+        "cep": "CEP inválido",
+        'brBoletoBancario': "Número do Boleto inválido",
+        'time': "Hora inválida.",
+        'date': "Data inválida."
+
     });
 
     // - - - - - - - - - - - - - - - - - - - - - -

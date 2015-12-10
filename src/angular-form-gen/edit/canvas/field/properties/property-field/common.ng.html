@@ -1,62 +1,78 @@
 <!-- focus -->
 <!--<div ng-if="fields.focus">-->
-  <!--<div fg-property-field="fieldFocus">-->
-    <!--<div class="checkbox">-->
-      <!--<label title="Set the initial focus to this field.">-->
-        <!--<input type="checkbox" ng-model="field.focus"/>-->
-        <!--Set input focus-->
-      <!--</label>-->
-    <!--</div>-->
-  <!--</div>-->
+<!--<div fg-property-field="fieldFocus">-->
+<!--<div class="checkbox">-->
+<!--<label title="Set the initial focus to this field.">-->
+<!--<input type="checkbox" ng-model="field.focus"/>-->
+<!--Set input focus-->
+<!--</label>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 
 <!-- fieldName -->
 <div ng-if="fields.fieldname">
-  <div fg-property-field="fieldName" fg-property-field-label="Nome">
-    <input type="text"
-           class="form-control"
-           name="fieldName"
-           ng-model="field.name"
-           ng-required="true"
-           ng-pattern="/^[a-zA-Z]([\w]+)?$/"
-           fg-unique-field-name/>
-  </div>
+    <div fg-property-field="fieldName" fg-property-field-label="Nome">
+        <input type="text"
+               class="form-control"
+               name="fieldName"
+               ng-model="field.name"
+               ng-required="true"
+               ng-pattern="/^[a-zA-Z]([\w]+)?$/"
+               fg-unique-field-name/>
+    </div>
 </div>
 
 <!-- displayName -->
 <div ng-if="fields.displayname">
-  <div fg-property-field="displayName" fg-property-field-label="Nome de Exibição">
-    <input type="text" class="form-control" name="displayName" ng-model="field.displayName"/>
-  </div>
+    <div fg-property-field="displayName" fg-property-field-label="Nome de Exibição">
+        <input type="text" class="form-control" name="displayName" ng-model="field.displayName"/>
+    </div>
 </div>
 
 <!-- displayName -->
 <div ng-if="fields.mask">
-  <div fg-property-field="mask" fg-property-field-label="Máscara de Exibição">
-    <select class="form-control" name="mask" ng-model="field.mask">
-      <option value="">Selecione</option>
-      <option value="ui-br-phone-number">Telefone</option>
-    </select>
-  </div>
+    <div fg-property-field="mask" fg-property-field-label="Máscara de Exibição">
+        <select class="form-control" name="mask" ng-model="field.mask">
+            <option value="">Selecione</option>
+            <optgroup label="Textos">
+                <option value="ui-br-phone-number">Telefone</option>
+                <option value="ui-br-cep-mask">CEP</option>
+                <option value="ui-br-cpf-mask">CPF</option>
+                <option value="ui-br-cpfcnpj-mask">CPF/CNPJ</option>
+            </optgroup>
+            <optgroup label="Números">
+                <option value="ui-number-mask">Número (Inteiro)</option>
+                <option value="ui-number-mask-dec">Número (Decimal)</option>
+                <option value="ui-percentage-mask">Porcentagem (Inteiro)</option>
+                <option value="ui-percentage-mask-dec">Porcentagem (Decimal)</option>
+                <option value="ui-money-mask">Moeda</option>
+            </optgroup>
+            <optgroup label="Tempo">
+                <option value="ui-date-mask">Data</option>
+                <option value="ui-time-mask">Tempo</option>
+            </optgroup>
+        </select>
+    </div>
 </div>
 
 <!-- placeholder -->
 <div ng-if="fields.placeholder">
-  <div fg-property-field="fieldPlaceholder" fg-property-field-label="Texto do Placeholder">
-    <input type="text"
-           class="form-control"
-           name="fieldPlaceholder"
-           ng-model="field.placeholder"/>
-  </div>
+    <div fg-property-field="fieldPlaceholder" fg-property-field-label="Texto do Placeholder">
+        <input type="text"
+               class="form-control"
+               name="fieldPlaceholder"
+               ng-model="field.placeholder"/>
+    </div>
 </div>
 
 <!-- tooltip -->
 <div ng-if="fields.tooltip">
-  <div fg-property-field="fieldTooltip" fg-property-field-label="Dica">
-    <input type="text"
-           class="form-control"
-           name="fieldTooltip"
-           ng-model="field.tooltip"/>
-  </div>
+    <div fg-property-field="fieldTooltip" fg-property-field-label="Dica">
+        <input type="text"
+               class="form-control"
+               name="fieldTooltip"
+               ng-model="field.tooltip"/>
+    </div>
 </div>
 
