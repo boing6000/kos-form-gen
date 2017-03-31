@@ -8,12 +8,11 @@
            disabled="disabled">
     <div class="input-group-btn">
         <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-            <span class="glyphicon glyphicon-remove"></span> Clear
+            <span class="glyphicon glyphicon-remove"></span> Limpar
         </button>
-        <div class="btn btn-default image-preview-input" fg-field-upload="">
+        <div class="btn btn-default image-preview-input" fg-field-upload="form.data[field.schema.name]" url="{{field.uploadurl}}">
             <span class="glyphicon glyphicon-folder-open"></span>
-            <span class="image-preview-input-title">Browse</span>
-            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>
+            <span class="image-preview-input-title">Buscar</span>
         </div>
     </div>
 </div>
