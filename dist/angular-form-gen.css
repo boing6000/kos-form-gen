@@ -104,6 +104,10 @@
   pointer-events: auto;
 }
 
+.fg-validation-summary {
+  margin-top: 10px;
+}
+
 .fg-field-inner .controls > div > .radio:first-child,
 .fg-field-inner .controls > div > .checkbox:first-child {
   padding-top: 5px;
@@ -141,10 +145,6 @@ file upload
 }
 .image-preview-input-title {
   margin-left: 2px;
-}
-
-.fg-validation-summary {
-  margin-top: 10px;
 }
 
 /*.jsonify {*/
