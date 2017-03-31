@@ -320,8 +320,6 @@ angular.module('fg').run(['$templateCache', function($templateCache){
   $templateCache.put('angular-form-gen/edit/edit.ng.html', '<div class=\"fg-edit row form-group\" ng-form=\"$fg\"><div class=\"col-sm-8\"><div fg-form=\"\" fg-edit-canvas=\"\" fg-no-render=\"true\"></div></div><div class=\"col-sm-4\" ng-form=\"$palette\" fg-null-form=\"\"><div fg-form=\"\" fg-edit-palette=\"\" fg-no-render=\"true\"></div></div></div>');
   $templateCache.put('angular-form-gen/validation/summary.ng.html', '<ul class=\"fg-validation-summary help-block unstyled\" ng-if=\"field.state.$invalid && field.state.$dirty\"><li ng-repeat=\"(key, error) in field.state.$error\" ng-if=\"error\" fg-bind-expression=\"messages[key]\"></li></ul>');
   $templateCache.put('angular-form-gen/common/jsonify/jsonify.ng.html', '<div class=\"jsonify\" ng-if=\"false\"><div class=\"btn-toolbar btn-toolbar-right\"><button class=\"btn btn-default btn-xs\" type=\"button\" title=\"Copy the json data.\" ng-click=\"copy()\"><span class=\"fa fa-clipboard\"></span></button> <button class=\"btn btn-default btn-xs\" type=\"button\" title=\"Display hidden properties.\" ng-click=\"displayHidden = !displayHidden\" ng-class=\"{ \'active\': displayHidden }\"><span class=\"fa fa-eye\"></span></button></div><pre><code>{{ jsonify | j$on:displayHidden }}</code></pre></div>');
-  $templateCache.put('angular-form-gen/common/tabs/tabs-pane.ng.html', '<div class=\"fg-tabs-pane\" ng-show=\"tabs.active === pane\"><div ng-if=\"tabs.active === pane || pane.renderAlways\" ng-transclude=\"\"></div></div>');
-  $templateCache.put('angular-form-gen/common/tabs/tabs.ng.html', '<div class=\"fg-tabs tabbable\"><ul class=\"nav nav-tabs\"><li ng-repeat=\"tab in tabs.items\" ng-class=\"{ active: tab === tabs.active, disabled: tab.disabled }\"><a href=\"\" ng-click=\"tabs.activate(tab)\">{{ tab.title }}</a></li></ul><div class=\"tab-content\" ng-transclude=\"\"></div></div>');
   $templateCache.put('angular-form-gen/field-templates/properties/checkbox.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div><div fg-property-field=\"fieldValue\"><div class=\"checkbox\"><label title=\"Set the initial value of this field.\"><input type=\"checkbox\" name=\"fieldValue\" ng-model=\"field.value\"> Valor Inicial</label></div></div></div>');
   $templateCache.put('angular-form-gen/field-templates/properties/checkboxlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"Opções\"><div fg-property-field-options=\"multiple\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"minoptions\" fg-property-field-label=\"Mínimo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número mínimo de opções que deve ser seleccionado.\" name=\"minoptions\" ng-model=\"field.validation.minoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.minoptions >= 1\"><div fg-edit-validation-message=\"minoptions\"></div></div></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"maxoptions\" fg-property-field-label=\"Máximo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número máximo de opções que podem ser seleccionadas.\" name=\"maxoptions\" ng-model=\"field.validation.maxoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.maxoptions >= 1\"><div fg-edit-validation-message=\"maxoptions\"></div></div></div></div>');
   $templateCache.put('angular-form-gen/field-templates/properties/dropdownlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><div fg-field-input=\"\" fg-dropdown-input=\"field.options\" ng-model=\"field.value\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"></div></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
@@ -334,6 +332,8 @@ angular.module('fg').run(['$templateCache', function($templateCache){
   $templateCache.put('angular-form-gen/field-templates/properties/text.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: true, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input type=\"text\" class=\"form-control\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
   $templateCache.put('angular-form-gen/field-templates/properties/textarea.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><textarea name=\"fieldValue\" class=\"form-control\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\">\n' +
     '    </textarea></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/common/tabs/tabs-pane.ng.html', '<div class=\"fg-tabs-pane\" ng-show=\"tabs.active === pane\"><div ng-if=\"tabs.active === pane || pane.renderAlways\" ng-transclude=\"\"></div></div>');
+  $templateCache.put('angular-form-gen/common/tabs/tabs.ng.html', '<div class=\"fg-tabs tabbable\"><ul class=\"nav nav-tabs\"><li ng-repeat=\"tab in tabs.items\" ng-class=\"{ active: tab === tabs.active, disabled: tab.disabled }\"><a href=\"\" ng-click=\"tabs.activate(tab)\">{{ tab.title }}</a></li></ul><div class=\"tab-content\" ng-transclude=\"\"></div></div>');
   $templateCache.put('angular-form-gen/field-templates/default/checkbox.ng.html', '<div class=\"checkbox\"><label title=\"{{ field.schema.tooltip }}\"><input fg-field-input=\"\" id=\"{{ field.$_id }}\" type=\"checkbox\" tabindex=\"{{ tabIndex }}\" ng-model=\"form.data[field.schema.name]\"> <span ng-if=\"field.schema.nolabel\">{{ field.schema.displayName }}</span></label></div>');
   $templateCache.put('angular-form-gen/field-templates/default/checkboxlist.ng.html', '<div fg-checkboxlist=\"\" fg-field-input=\"\" ng-model=\"form.data[field.schema.name]\" name=\"{{ field.schema.name }}\"><div class=\"checkbox\" ng-repeat=\"option in field.schema.options\"><label title=\"{{ field.schema.tooltip }}\"><input type=\"checkbox\" tabindex=\"{{ tabIndex }}\" value=\"{{ option.value }}\" ng-model=\"form.data[field.schema.name][option.value]\"> <span>{{option.text || option.value}}</span></label></div></div>');
   $templateCache.put('angular-form-gen/field-templates/default/dropdownlist.ng.html', '<div fg-field-input=\"\" fg-dropdown-input=\"field.schema.options\" title=\"{{ field.schema.tooltip }}\" id=\"{{ field.$_id }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"></div>');
@@ -1267,6 +1267,92 @@ fg.directive('fgEdit', function () {
     }
   }
 });
+fg.controller('fgFormController', ["$scope", "$parse", function($scope, $parse) {
+
+  this.model = {};
+  var self = this;
+
+  this.init = function(dataExpression, schema, state, editMode) {
+    // Called by the directive
+    
+    self.editMode = editMode;
+
+    var dataGetter = $parse(dataExpression);
+    var dataSetter = dataGetter.assign;
+
+    $scope.$watch(dataGetter, function(value) {
+      if(value === undefined) {
+        value = {};
+
+        if(dataSetter) {
+          dataSetter($scope, value);
+        }
+      }
+
+      self.model.data = value;
+    });
+
+    $scope.$watch(function() {
+      return schema.model();
+    }, function(value) {
+      if(value === undefined) {
+        schema.model({});
+      } else {
+        self.model.schema = value;
+      }
+    });
+
+    self.model.state = state;
+
+    
+    return self.model;
+  };
+
+//  this.clearFocusOnFields = function() {
+//    angular.forEach(self.model.schema.fields, function(field) {
+//      field.focus = false;
+//    });
+//  };
+
+}]);
+
+fg.directive('fgForm', ["fgFormCompileFn", function(fgFormCompileFn) {
+  return {
+    restrict: 'AE',
+    require: ['^?form', 'fgForm', '^fgSchema'],
+    controller: 'fgFormController',
+    scope: true,
+    compile: fgFormCompileFn
+  };
+}]).factory('fgFormLinkFn', function() {
+    return function link($scope, $element, $attrs, ctrls) {
+
+      var ngFormCtrl = ctrls[0];
+      var formCtrl = ctrls[1];
+      var schemaCtrl = ctrls[2];
+
+      var editMode = $attrs.fgNoRender === 'true';
+
+      formCtrl.init($attrs.fgFormData, schemaCtrl, ngFormCtrl, editMode);
+      
+    };
+}).factory('fgFormCompileFn', ["fgFormLinkFn", function(fgFormLinkFn) {
+  return function($element, $attrs) {
+
+    $element.addClass('fg-form');
+
+    var noRender = $attrs.fgNoRender;
+    
+    if (noRender !== 'true') {
+      var renderTemplate = '<div fg-form-fields></div>';
+      $element.append(renderTemplate);
+    }
+    
+    return fgFormLinkFn;
+  };
+}]);
+
+
 fg.directive('fgValidationSummary', ["fgValidationSummaryLinkFn", function(fgValidationSummaryLinkFn) {
 
   return {
@@ -1377,92 +1463,6 @@ fg.directive('fgUniqueFieldName', function () {
     }
   };
 });
-
-fg.controller('fgFormController', ["$scope", "$parse", function($scope, $parse) {
-
-  this.model = {};
-  var self = this;
-
-  this.init = function(dataExpression, schema, state, editMode) {
-    // Called by the directive
-    
-    self.editMode = editMode;
-
-    var dataGetter = $parse(dataExpression);
-    var dataSetter = dataGetter.assign;
-
-    $scope.$watch(dataGetter, function(value) {
-      if(value === undefined) {
-        value = {};
-
-        if(dataSetter) {
-          dataSetter($scope, value);
-        }
-      }
-
-      self.model.data = value;
-    });
-
-    $scope.$watch(function() {
-      return schema.model();
-    }, function(value) {
-      if(value === undefined) {
-        schema.model({});
-      } else {
-        self.model.schema = value;
-      }
-    });
-
-    self.model.state = state;
-
-    
-    return self.model;
-  };
-
-//  this.clearFocusOnFields = function() {
-//    angular.forEach(self.model.schema.fields, function(field) {
-//      field.focus = false;
-//    });
-//  };
-
-}]);
-
-fg.directive('fgForm', ["fgFormCompileFn", function(fgFormCompileFn) {
-  return {
-    restrict: 'AE',
-    require: ['^?form', 'fgForm', '^fgSchema'],
-    controller: 'fgFormController',
-    scope: true,
-    compile: fgFormCompileFn
-  };
-}]).factory('fgFormLinkFn', function() {
-    return function link($scope, $element, $attrs, ctrls) {
-
-      var ngFormCtrl = ctrls[0];
-      var formCtrl = ctrls[1];
-      var schemaCtrl = ctrls[2];
-
-      var editMode = $attrs.fgNoRender === 'true';
-
-      formCtrl.init($attrs.fgFormData, schemaCtrl, ngFormCtrl, editMode);
-      
-    };
-}).factory('fgFormCompileFn', ["fgFormLinkFn", function(fgFormLinkFn) {
-  return function($element, $attrs) {
-
-    $element.addClass('fg-form');
-
-    var noRender = $attrs.fgNoRender;
-    
-    if (noRender !== 'true') {
-      var renderTemplate = '<div fg-form-fields></div>';
-      $element.append(renderTemplate);
-    }
-    
-    return fgFormLinkFn;
-  };
-}]);
-
 
 fg.filter('j$on',function () {
   return function (input, displayHidden) {
@@ -2068,13 +2068,15 @@ fg.directive('fgFieldUpload', function() {
             fgFieldUpload: '='
         },
         link: function(scope, element, attrs){
+            var dlg = new XPROFileDialog({
+                url: attrs['url'],
+                onSelect: function (data) {
+                    scope.fgFieldUpload(data.url);
+                }
+            });
+
             element.on('click', function () {
-                var dlg = new XPROFileDialog({
-                    url: attrs['url'],
-                    onSelect: function (data) {
-                        scope.fgFieldUpload(data.url);
-                    }
-                });
+                dlg.open();
             });
         }
     };

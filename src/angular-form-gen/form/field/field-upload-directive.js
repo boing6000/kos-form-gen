@@ -4,13 +4,15 @@ fg.directive('fgFieldUpload', function() {
             fgFieldUpload: '='
         },
         link: function(scope, element, attrs){
+            var dlg = new XPROFileDialog({
+                url: attrs['url'],
+                onSelect: function (data) {
+                    scope.fgFieldUpload(data.url);
+                }
+            });
+
             element.on('click', function () {
-                var dlg = new XPROFileDialog({
-                    url: attrs['url'],
-                    onSelect: function (data) {
-                        scope.fgFieldUpload(data.url);
-                    }
-                });
+                dlg.open();
             });
         }
     };
