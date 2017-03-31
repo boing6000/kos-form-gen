@@ -194,7 +194,9 @@ fg.config(function (fgConfigProvider, FgField) {
             new FgField('password', {
                 displayName: 'Senha'
             }),
-            new FgField('textarea')
+            new FgField('textarea'),
+            new FgField('fileupload'),
+            new FgField('imageupload'),
         ],
         'Campos de Checkbox': [
             new FgField('checkbox', {nolabel: true}),
