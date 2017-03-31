@@ -1,0 +1,36 @@
+<div fg-tabs-pane="Propriedades">
+    <div
+            fg-property-field-common="{ fieldname: false, mask: false, displayname: false, placeholder: false, tooltip: true }"></div>
+    <!--
+
+      The field-value directive will re-render itself when certain validation values are modified.
+      This is needed because angular does not watch or observe the values of certain attributes and allows
+      an invalid initial value to be saved in the form schema.
+
+      Important: the transcluded form field must be name fieldValue!
+
+    -->
+    <div fg-property-field-value>
+        <div class="input-group image-preview">
+            <input type="text"
+                   class="form-control image-preview-filename"
+                   name="fieldValue"
+                   ng-model="field.value"
+                   ng-required="field.schema.validation.required"
+                   disabled="disabled">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                    <span class="glyphicon glyphicon-remove"></span> Clear
+                </button>
+                <div class="btn btn-default image-preview-input">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    <span class="image-preview-input-title">Browse</span>
+                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fg-tabs-pane="Validações">
+    <div fg-property-field-validation="{ required: true, minlength: false, maxlength: false, pattern: false }"></div>
+</div>
