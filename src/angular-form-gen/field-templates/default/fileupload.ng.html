@@ -1,18 +1,1 @@
-<div class="input-group image-preview">
-    <input type="text"
-           class="form-control image-preview-filename"
-           fg-field-input
-           id="{{ field.$_id }}"
-           ng-model="form.data[field.schema.name]"
-           ng-required="field.schema.validation.required"
-           disabled="disabled">
-    <div class="input-group-btn">
-        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-            <span class="glyphicon glyphicon-remove"></span> Limpar
-        </button>
-        <div class="btn btn-default image-preview-input" fg-field-upload="form.data[field.schema.name]" url="{{field.uploadurl}}">
-            <span class="glyphicon glyphicon-folder-open"></span>
-            <span class="image-preview-input-title">Buscar</span>
-        </div>
-    </div>
-</div>
+<fg-field-upload ng-model="form.data[field.schema.name]" url="field.schema.uploadurl"></fg-field-upload>
