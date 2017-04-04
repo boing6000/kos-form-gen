@@ -1,4 +1,4 @@
-var fg = angular.module('fg', ['dq', 'ui.utils.masks']);
+var fg = angular.module('fg', ['dq', 'ui.utils.masks', 'ng-pros.directive.autocomplete']);
 
 /**
  * Constructor for form-gen Field types.
@@ -185,6 +185,9 @@ fg.config(function (fgConfigProvider, FgField) {
         'Campos de Texto': [
             new FgField('text', {
                 displayName: 'Campo de Texto'
+            }),
+            new FgField('autocomplete', {
+                displayName: 'Campo de Texto (Auto-Complete)'
             }),
             new FgField('email'),
             new FgField('number', {

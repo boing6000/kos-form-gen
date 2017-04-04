@@ -18,7 +18,7 @@
     "schema",
     "generator"
   ],
-  "version": "0.0.18",
+  "version": "0.0.19",
   "authors": [
     "Pranav Sathy https://github.com/PranavSathy",
     "Null McNull <noreplies@hotmail.com> https://github.com/McNull"
@@ -42,7 +42,8 @@
   "dependencies": {
     "angular": "^1.3.0",
     "bootstrap": "~3.3.4",
-    "angular-input-masks": "~2.1.1"
+    "angular-input-masks": "~2.1.1",
+    "np-autocomplete": "^2.1.0"
   },
   "devDependencies": {
     "angular-route": "~1.2.21",
