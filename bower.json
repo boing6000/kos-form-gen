@@ -1,78 +1,22 @@
 {
-  "name": "kos-form-gen",
-  "description": "Dynamic drag and drop angular-js form creation, utilizing FontAwesome",
-  "main": [
-    "dist/angular-form-gen.js",
-    "dist/angular-form-gen.css"
+  "name": "angular-dynforms",
+  "version": "0.0.4",
+  "homepage": "https://github.com/danhunsaker/angular-dynamic-forms",
+  "authors": [
+    "Daniel Hunsaker <danhunsaker@gmail.com>"
+  ],
+  "description": "Build Forms in AngularJS From Nothing But JSON",
+  "main": "dynamic-forms.js",
+  "keywords": [
+    "angular",
+    "form"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/boing6000/kos-form-gen",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:boing6000/kos-form-gen.git"
-  },
-  "keywords": [
-    "angularjs",
-    "angular",
-    "form",
-    "schema",
-    "generator"
-  ],
-  "version": "0.0.19",
-  "authors": [
-    "Pranav Sathy https://github.com/PranavSathy",
-    "Null McNull <noreplies@hotmail.com> https://github.com/McNull"
-  ],
-  "moduleType": [
-    "globals"
-  ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "gulp-tasks",
-    "src",
-    "dest",
-    "projectFilesBackup",
-    "/build-config.js",
-    "/gulpfile.js",
-    "/package.json",
-    "/karma.conf.js"
-  ],
-  "dependencies": {
-    "angular": "^1.3.0",
-    "bootstrap": "~3.3.4",
-    "angular-input-masks": "~2.1.1",
-    "np-autocomplete": "^2.1.0"
-  },
-  "devDependencies": {
-    "angular-route": "~1.2.21",
-    "angular-mocks": "~1.2.21",
-    "jquery": "1.*",
-    "respond": "~1.4.2",
-    "html5shiv": "~3.7.2",
-    "lodash": "~2.4.1",
-    "angular-inform": "~0.0.12",
-    "angular-block-ui": "~0.1.0",
-    "angular-markdown-text": "~0.0.2",
-    "angular-sanitize": "~1.2.21",
-    "angular-animate": "~1.2.21"
-  },
-  "overrides": {
-    "respond": {
-      "main": "dest/respond.min.js"
-    },
-    "angular-mocks": {
-      "ignore": true
-    },
-    "lodash": {
-      "ignore": true
-    },
-    "showdown": {
-      "main": "compressed/showdown.js"
-    }
-  },
-  "resolutions": {
-    "angular": "^1.3.0"
-  }
+    "test",
+    "tests"
+  ]
 }
