@@ -327,20 +327,7 @@ angular.module('fg').run(['$templateCache', function($templateCache){
   $templateCache.put('angular-form-gen/common/tabs/tabs.ng.html', '<div class=\"fg-tabs tabbable\"><ul class=\"nav nav-tabs\"><li ng-repeat=\"tab in tabs.items\" ng-class=\"{ active: tab === tabs.active, disabled: tab.disabled }\"><a href=\"\" ng-click=\"tabs.activate(tab)\">{{ tab.title }}</a></li></ul><div class=\"tab-content\" ng-transclude=\"\"></div></div>');
   $templateCache.put('angular-form-gen/edit/canvas/canvas.ng.html', '<div class=\"fg-edit-canvas\" ng-class=\"{ \'fg-edit-canvas-dragging\': dragging }\"><fieldset><legend>Canvas</legend><div class=\"fg-edit-canvas-area\" dq-drag-area=\"fg-edit-canvas\" dq-drag-enter=\"canvasCtrl.dragEnter()\" dq-drag-leave=\"canvasCtrl.dragLeave()\" dq-drop=\"canvasCtrl.drop()\"><div ng-if=\"!(schema.fields.length)\"><div ng-if=\"!dragPlaceholder.visible\" class=\"fg-edit-canvas-area-empty alert alert-info text-center\"><p class=\"fg-edit-canvas-area-empty-x\">X</p><p class=\"lead hidden-phone\"><strong>Arraste</strong> um dos elementos disponíveis na <strong>Paleta ao lado</strong> nesta <strong>Área</strong>.</p></div></div><div ng-repeat=\"field in schema.fields\"><div ng-class=\"{ \'fg-drag-placeholder-visible\' : dragPlaceholder.visible && dragPlaceholder.index === $index }\" class=\"fg-drag-placeholder\"></div><div fg-edit-canvas-field=\"\"></div></div><div ng-class=\"{ \'fg-drag-placeholder-visible\': dragPlaceholder.visible && dragPlaceholder.index == schema.fields.length }\" class=\"fg-drag-placeholder\"></div></div></fieldset></div>');
   $templateCache.put('angular-form-gen/edit/palette/palette.ng.html', '<div class=\"fg-edit-palette\"><fieldset><div fg-edit-palette-categories=\"\" data-category=\"selectedCategory\"></div><div ng-repeat=\"template in templates | filter:templateFilter\" class=\"fg-field\" dq-draggable=\"fg-edit-canvas\" dq-drag-begin=\"{ source: \'palette\', field: template }\"><div class=\"fg-field-overlay\"><div class=\"btn-toolbar btn-toolbar-right\"><button class=\"btn btn-default btn-xs btn-primary\" type=\"button\" ng-click=\"schemaCtrl.addField(template)\" title=\"Adicionar este Campo.\"><span class=\"fa fa-plus\"></span></button></div></div><div fg-field=\"template\" fg-tab-index=\"-1\" fg-no-validation-summary=\"true\" fg-edit-mode=\"true\"></div></div></fieldset></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/autocomplete.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: false, displayname: true, placeholder: true, tooltip: true, uploadurl: false }\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: false, maxlength: false, pattern: false }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/checkbox.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div><div fg-property-field=\"fieldValue\"><div class=\"checkbox\"><label title=\"Set the initial value of this field.\"><input type=\"checkbox\" name=\"fieldValue\" ng-model=\"field.value\"> Valor Inicial</label></div></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/checkboxlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"Opções\"><div fg-property-field-options=\"multiple\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"minoptions\" fg-property-field-label=\"Mínimo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número mínimo de opções que deve ser seleccionado.\" name=\"minoptions\" ng-model=\"field.validation.minoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.minoptions >= 1\"><div fg-edit-validation-message=\"minoptions\"></div></div></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"maxoptions\" fg-property-field-label=\"Máximo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número máximo de opções que podem ser seleccionadas.\" name=\"maxoptions\" ng-model=\"field.validation.maxoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.maxoptions >= 1\"><div fg-edit-validation-message=\"maxoptions\"></div></div></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/dropdownlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><div fg-field-input=\"\" fg-dropdown-input=\"field.options\" ng-model=\"field.value\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"></div></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/email.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input type=\"email\" class=\"form-control\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/fileupload.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: false, displayname: true, placeholder: false, tooltip: true, uploadurl: true }\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: false, maxlength: false, pattern: false }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/number.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input fg-input-number=\"\" class=\"form-control\" type=\"number\" name=\"fieldValue\" ng-model=\"field.value\" min=\"{{ field.validation.min }}\" max=\"{{ field.validation.max }}\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div class=\"fg-property-field-validation\"><div fg-property-field=\"min\" fg-property-field-label=\"Mínimo\"><input fg-input-number=\"\" fg-field-redraw=\"\" class=\"form-control\" type=\"number\" name=\"min\" title=\"O valor mínimo que deve ser digitado\" ng-model=\"field.validation.min\"></div><div ng-if=\"field.validation.min >= 0\"><div fg-edit-validation-message=\"min\"></div></div></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"max\" fg-property-field-label=\"Máximo\"><input fg-input-number=\"\" fg-field-redraw=\"\" class=\"form-control\" type=\"number\" name=\"max\" title=\"O valor máximo que deve ser digitado\" ng-model=\"field.validation.max\"></div><div ng-if=\"field.validation.max >= 0\"><div fg-edit-validation-message=\"max\"></div></div></div><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/password.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input fg-input-number=\"\" class=\"form-control\" type=\"password\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/radiobuttonlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"opções\"><div fg-property-field-options=\"\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/selectlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"opções\"><div fg-property-field-options=\"\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/text.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: true, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input type=\"text\" class=\"form-control\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/properties/textarea.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><textarea name=\"fieldValue\" class=\"form-control\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\">\n' +
-    '    </textarea></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
-  $templateCache.put('angular-form-gen/field-templates/default/autocomplete.ng.html', '<div class=\"form-group\" np-autocomplete=\"field.schema.options\" ng-model=\"form.data[field.schema.name]\"><input type=\"text\" ng-required=\"field.schema.validation.required\" placeholder=\"{{ field.schema.placeholder }}\" class=\"form-control\"> <span class=\"glyphicon glyphicon-refresh glyphicon-refresh-animate form-control-feedback\" aria-hidden=\"true\"></span></div>');
+  $templateCache.put('angular-form-gen/field-templates/default/autocomplete.ng.html', '<div fg-autocomplete=\"\" np-input-model=\"temp\" class=\"form-group\" np-autocomplete=\"field.schema.options\" ng-model=\"form.data[field.schema.name]\"><input type=\"text\" ng-required=\"field.schema.validation.required\" placeholder=\"{{ field.schema.placeholder }}\" class=\"form-control\"> <span class=\"glyphicon glyphicon-refresh glyphicon-refresh-animate form-control-feedback\" aria-hidden=\"true\"></span></div>');
   $templateCache.put('angular-form-gen/field-templates/default/checkbox.ng.html', '<div class=\"checkbox\"><label title=\"{{ field.schema.tooltip }}\"><input fg-field-input=\"\" id=\"{{ field.$_id }}\" type=\"checkbox\" tabindex=\"{{ tabIndex }}\" ng-model=\"form.data[field.schema.name]\"> <span ng-if=\"field.schema.nolabel\">{{ field.schema.displayName }}</span></label></div>');
   $templateCache.put('angular-form-gen/field-templates/default/checkboxlist.ng.html', '<div fg-checkboxlist=\"\" fg-field-input=\"\" ng-model=\"form.data[field.schema.name]\" name=\"{{ field.schema.name }}\"><div class=\"checkbox\" ng-repeat=\"option in field.schema.options\"><label title=\"{{ field.schema.tooltip }}\"><input type=\"checkbox\" tabindex=\"{{ tabIndex }}\" value=\"{{ option.value }}\" ng-model=\"form.data[field.schema.name][option.value]\"> <span>{{option.text || option.value}}</span></label></div></div>');
   $templateCache.put('angular-form-gen/field-templates/default/dropdownlist.ng.html', '<div fg-field-input=\"\" fg-dropdown-input=\"field.schema.options\" title=\"{{ field.schema.tooltip }}\" id=\"{{ field.$_id }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"></div>');
@@ -354,6 +341,19 @@ angular.module('fg').run(['$templateCache', function($templateCache){
   $templateCache.put('angular-form-gen/field-templates/default/text.ng.html', '<input class=\"form-control\" ng-if=\"field.schema.mask == undefined || field.schema.mask == \'\'\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"><input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-br-phone-number\'\" ui-br-phone-number=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-br-cep-mask\'\" ui-br-cep-mask=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-br-cpf-mask\'\" ui-br-cpf-mask=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-br-cnpj-mask\'\" ui-br-cnpj-mask=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-br-cpfcnpj-mask\'\" ui-br-cpfcnpj-mask=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"><input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-number-mask\'\" ui-number-mask=\"0\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-number-mask-dec\'\" ui-number-mask=\"2\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-percentage-mask\'\" ui-percentage-mask=\"0\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-percentage-mask-dec\'\" ui-percentage-mask=\"2\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-money-mask\'\" ui-money-mask=\"2\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"><input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-date-mask\'\" ui-date-mask=\"\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"> <input class=\"form-control\" ng-if=\"field.schema.mask == \'ui-time-mask\'\" ui-time-mask=\"short\" fg-field-input=\"\" type=\"text\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" placeholder=\"{{ field.schema.placeholder }}\" ng-model=\"form.data[field.schema.name]\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\">');
   $templateCache.put('angular-form-gen/field-templates/default/textarea.ng.html', '<textarea class=\"form-control\" fg-field-input=\"\" fg-placeholder=\"field.schema.placeholder\" ng-model=\"form.data[field.schema.name]\" id=\"{{ field.$_id }}\" title=\"{{ field.schema.tooltip }}\" tabindex=\"{{ tabIndex }}\" ng-required=\"field.schema.validation.required\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\">\n' +
     '</textarea>');
+  $templateCache.put('angular-form-gen/field-templates/properties/autocomplete.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: false, displayname: true, placeholder: true, tooltip: true, uploadurl: false }\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: false, maxlength: false, pattern: false }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/checkbox.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div><div fg-property-field=\"fieldValue\"><div class=\"checkbox\"><label title=\"Set the initial value of this field.\"><input type=\"checkbox\" name=\"fieldValue\" ng-model=\"field.value\"> Valor Inicial</label></div></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/checkboxlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"Opções\"><div fg-property-field-options=\"multiple\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"minoptions\" fg-property-field-label=\"Mínimo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número mínimo de opções que deve ser seleccionado.\" name=\"minoptions\" ng-model=\"field.validation.minoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.minoptions >= 1\"><div fg-edit-validation-message=\"minoptions\"></div></div></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"maxoptions\" fg-property-field-label=\"Máximo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O número máximo de opções que podem ser seleccionadas.\" name=\"maxoptions\" ng-model=\"field.validation.maxoptions\" class=\"form-control\"></div><div ng-if=\"field.validation.maxoptions >= 1\"><div fg-edit-validation-message=\"maxoptions\"></div></div></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/dropdownlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><div fg-field-input=\"\" fg-dropdown-input=\"field.options\" ng-model=\"field.value\" ng-minlength=\"{{ field.schema.validation.minlength }}\" ng-maxlength=\"{{ field.schema.validation.maxlength }}\" ng-pattern=\"{{ field.schema.validation.pattern }}\"></div></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/email.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input type=\"email\" class=\"form-control\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/fileupload.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: false, displayname: true, placeholder: false, tooltip: true, uploadurl: true }\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: false, maxlength: false, pattern: false }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/number.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input fg-input-number=\"\" class=\"form-control\" type=\"number\" name=\"fieldValue\" ng-model=\"field.value\" min=\"{{ field.validation.min }}\" max=\"{{ field.validation.max }}\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div class=\"fg-property-field-validation\"><div fg-property-field=\"min\" fg-property-field-label=\"Mínimo\"><input fg-input-number=\"\" fg-field-redraw=\"\" class=\"form-control\" type=\"number\" name=\"min\" title=\"O valor mínimo que deve ser digitado\" ng-model=\"field.validation.min\"></div><div ng-if=\"field.validation.min >= 0\"><div fg-edit-validation-message=\"min\"></div></div></div><div class=\"fg-property-field-validation\"><div fg-property-field=\"max\" fg-property-field-label=\"Máximo\"><input fg-input-number=\"\" fg-field-redraw=\"\" class=\"form-control\" type=\"number\" name=\"max\" title=\"O valor máximo que deve ser digitado\" ng-model=\"field.validation.max\"></div><div ng-if=\"field.validation.max >= 0\"><div fg-edit-validation-message=\"max\"></div></div></div><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/password.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input fg-input-number=\"\" class=\"form-control\" type=\"password\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/radiobuttonlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"opções\"><div fg-property-field-options=\"\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/selectlist.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, tooltip: true }\"></div></div><div fg-tabs-pane=\"opções\"><div fg-property-field-options=\"\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/text.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, mask: true, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><input type=\"text\" class=\"form-control\" name=\"fieldValue\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\"></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
+  $templateCache.put('angular-form-gen/field-templates/properties/textarea.ng.html', '<div fg-tabs-pane=\"Propriedades\"><div fg-property-field-common=\"{ fieldname: false, displayname: true, placeholder: true, tooltip: true }\"></div><div fg-property-field-value=\"\"><textarea name=\"fieldValue\" class=\"form-control\" ng-model=\"field.value\" ng-minlength=\"{{ field.validation.minlength }}\" ng-maxlength=\"{{ field.validation.maxlength }}\" ng-pattern=\"{{ field.validation.pattern }}\">\n' +
+    '    </textarea></div></div><div fg-tabs-pane=\"Validações\"><div fg-property-field-validation=\"{ required: true, minlength: true, maxlength: true, pattern: true }\"></div></div>');
   $templateCache.put('angular-form-gen/form/field/field.ng.html', '<div class=\"fg-field-inner form-group\" ng-class=\"{ \'fg-field-required\': fieldSchema.validation.required, \'has-error\': form.state[field.name].$invalid }\"><label ng-if=\"!field.schema.nolabel\" class=\"\" for=\"{{ field.$_id }}\">{{ fieldSchema.displayName }} <a ng-show=\"field.schema.tooltip != \'\'\" class=\"tooltips\" href=\"\"><i class=\"fa fa-info\"></i> <span>{{field.schema.tooltip}}</span></a></label><div ng-include=\"renderInfo.templateUrl\"></div><div fg-validation-summary=\"\" fg-validation-messages=\"fieldSchema.validation.messages\" ng-if=\"!noValidationSummary\"></div></div>');
   $templateCache.put('angular-form-gen/form/field/upload.ng.html', '<div class=\"input-group image-preview\"><input type=\"text\" class=\"form-control image-preview-filename\" ng-required=\"field.schema.validation.required\" disabled=\"disabled\"><div class=\"input-group-btn\"><button type=\"button\" ng-click=\"\" class=\"btn btn-default image-preview-btn\" ng-show=\"hasImage\"><span class=\"glyphicon glyphicon-zoom-in\"></span> Visualizar</button> <button type=\"button\" ng-click=\"clear()\" class=\"btn btn-default\" ng-show=\"hasModel\"><span class=\"glyphicon glyphicon-remove\"></span> Limpar</button><div class=\"btn btn-default image-preview-input\" ng-click=\"upload()\"><span class=\"glyphicon glyphicon-folder-open\"></span> <span class=\"image-preview-input-title\">{{uploadStr}}</span></div></div></div>');
   $templateCache.put('angular-form-gen/form/form-fields/form-fields.ng.html', '<div class=\"fg-form-fields\"><fieldset><div class=\"col-sm-6\" ng-repeat=\"field in form.schema.fields\"><div class=\"col-zm-12\" fg-field=\"field\"></div></div></fieldset></div>');
@@ -361,11 +361,11 @@ angular.module('fg').run(['$templateCache', function($templateCache){
   $templateCache.put('angular-form-gen/edit/palette/categories/categories.ng.html', '<legend ng-click=\"paletteCategoriesMenuOpen = !paletteCategoriesMenuOpen\" ng-class=\"{ \'open\': paletteCategoriesMenuOpen }\">Paleta <span class=\"fg-legend-extra fg-edit-palette-categories visible-xs-inline visible-md-inline visible-lg-inline\">- {{ categoryName || \'Todos os Tipos\' }}</span> <i class=\"caret\"></i><ul class=\"dropdown-menu\"><li ng-repeat=\"(name, category) in categories\" ng-class=\"{ \'active\': categoryName === name }\"><a ng-click=\"setCategory(name, category)\">{{ name }}</a></li><li class=\"divider\"></li><li ng-class=\"{ \'active\': !category }\"><a ng-click=\"setCategory(null)\">Todos os Tipos</a></li></ul></legend>');
   $templateCache.put('angular-form-gen/edit/canvas/field/properties/properties.ng.html', '<div class=\"fg-field-properties\"><div novalidate=\"\" ng-form=\"fieldPropertiesForm\"><div fg-tabs=\"property.tabs\"><div ng-include=\"renderInfo.propertiesTemplateUrl\"></div><div ng-if=\"false\" fg-tabs-pane=\"Debug\" order=\"1000\" auto-active=\"false\"><div data-jsonify=\"field\"></div></div></div></div></div>');
   $templateCache.put('angular-form-gen/edit/canvas/field/properties/options/options.ng.html', '<div ng-if=\"!field.options || field.options.length === 0\" ng-click=\"optionsCtrl.addOption()\" class=\"alert alert-info\"><h2>Sem opções definido</h2><p class=\"lead\">Clique aqui para adicionar uma nova definição de opção para este campo.</p></div><table ng-if=\"field.options.length > 0\" class=\"table-field-options\"><thead><tr><th></th><th>Valor</th><th>Texto</th><th><a href=\"\" class=\"btn btn-default btn-xs\" ng-click=\"optionsCtrl.addOption()\" title=\"Adicionar uma nova opção para a lista\"><i class=\"fa fa-plus\"></i></a></th><th class=\"table-field-options-padding\"></th></tr></thead><tbody><tr ng-form=\"fieldOptionForm\" ng-repeat=\"option in field.options\" ng-class=\"{ \'error\': fieldOptionForm.$invalid }\"><td ng-if=\"multiple === false\"><input type=\"radio\" name=\"{{ field.name }}selection[]\" value=\"{{ option.value }}\" ng-model=\"field.value\" ng-click=\"optionsCtrl.toggleOption(option.value)\"></td><td ng-if=\"multiple === true\"><input type=\"checkbox\" name=\"{{ field.name }}selection[]\" value=\"{{ option.value }}\" ng-model=\"field.value[option.value]\"></td><td><input type=\"text\" name=\"optionValue\" ng-model=\"option.value\" class=\"form-control\" ng-required=\"field.type != \'selectlist\'\"></td><td><input type=\"text\" ng-model=\"option.text\" class=\"form-control\"></td><td><a href=\"\" class=\"btn btn-default btn-xs\" ng-click=\"optionsCtrl.removeOption($index)\" title=\"Remover esta opção da lista\"><i class=\"fa fa-trash\"></i></a></td><td></td></tr></tbody></table>');
-  $templateCache.put('angular-form-gen/edit/canvas/field/properties/validation/validation-message.ng.html', '<div ng-form=\"valMsgForm\"><div fg-property-field=\"message\" fg-property-field-label=\"Mensagem\"><input type=\"text\" name=\"message\" title=\"{{ tooltip }}\" placeholder=\"Mensagem opcional\" ng-model=\"field.validation.messages[validationType]\" class=\"form-control\"></div></div>');
-  $templateCache.put('angular-form-gen/edit/canvas/field/properties/validation/validation.ng.html', '<div ng-if=\"fields.minlength\" class=\"fg-property-field-validation\"><div fg-property-field=\"minlength\" fg-property-field-label=\"Comprimento Mínimo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O comprimento mínimo de caracteres que deve ser digitado.\" name=\"minlength\" ng-model=\"field.validation.minlength\" class=\"form-control\"></div><div ng-if=\"field.validation.minlength >= 1\"><div fg-edit-validation-message=\"minlength\"></div></div></div><div ng-if=\"fields.maxlength\" class=\"fg-property-field-validation\"><div fg-property-field=\"maxlength\" fg-property-field-label=\"Comprimento Máximo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O comprimento máximo de caracteres que deve ser digitado.\" name=\"maxlength\" ng-model=\"field.validation.maxlength\" class=\"form-control\"></div><div ng-if=\"field.validation.maxlength >= 1\"><div fg-edit-validation-message=\"maxlength\"></div></div></div><div ng-if=\"fields.pattern\" class=\"fg-property-field-validation\"><div fg-property-field=\"pattern\" fg-property-field-label=\"Modelo\"><div fg-dropdown-input=\"patternOptions\" name=\"pattern\" title=\"O modelo que deve coincidir com o valor de entrada.\" fg-parse-pattern=\"\" fg-field-redraw=\"\" ng-model=\"field.validation.pattern\"></div></div><div ng-if=\"field.validation.pattern.length > 0\"><div fg-edit-validation-message=\"pattern\"></div></div></div><div ng-if=\"fields.required\" class=\"fg-property-field-validation\"><div fg-property-field=\"required\"><div class=\"checkbox\"><label title=\"Indica se é necessário um valor para este campo.\"><input type=\"checkbox\" ng-model=\"field.validation.required\">Requerido</label></div></div><div ng-if=\"field.validation.required\"><div fg-edit-validation-message=\"required\"></div></div></div>');
   $templateCache.put('angular-form-gen/edit/canvas/field/properties/property-field/common.ng.html', '<div ng-if=\"fields.fieldname\"><div fg-property-field=\"fieldName\" fg-property-field-label=\"Nome\"><input type=\"text\" class=\"form-control\" name=\"fieldName\" ng-model=\"field.name\" ng-required=\"true\" ng-pattern=\"/^[a-zA-Z]([\\w]+)?$/\" fg-unique-field-name=\"\"></div></div><div ng-if=\"fields.displayname\"><div fg-property-field=\"displayName\" fg-property-field-label=\"Nome de Exibição\"><input type=\"text\" class=\"form-control\" name=\"displayName\" ng-model=\"field.displayName\"></div></div><div ng-if=\"fields.mask\"><div fg-property-field=\"mask\" fg-property-field-label=\"Máscara de Exibição\"><select class=\"form-control\" name=\"mask\" ng-model=\"field.mask\"><option value=\"\">Selecione</option><optgroup label=\"Textos\"><option value=\"ui-br-phone-number\">Telefone</option><option value=\"ui-br-cep-mask\">CEP</option><option value=\"ui-br-cpf-mask\">CPF</option><option value=\"ui-br-cpfcnpj-mask\">CPF/CNPJ</option></optgroup><optgroup label=\"Números\"><option value=\"ui-number-mask\">Número (Inteiro)</option><option value=\"ui-number-mask-dec\">Número (Decimal)</option><option value=\"ui-percentage-mask\">Porcentagem (Inteiro)</option><option value=\"ui-percentage-mask-dec\">Porcentagem (Decimal)</option><option value=\"ui-money-mask\">Moeda</option></optgroup><optgroup label=\"Tempo\"><option value=\"ui-date-mask\">Data</option><option value=\"ui-time-mask\">Tempo</option></optgroup></select></div></div><div ng-if=\"fields.placeholder\"><div fg-property-field=\"fieldPlaceholder\" fg-property-field-label=\"Texto do Placeholder\"><input type=\"text\" class=\"form-control\" name=\"fieldPlaceholder\" ng-model=\"field.placeholder\"></div></div><div ng-if=\"fields.tooltip\"><div fg-property-field=\"fieldTooltip\" fg-property-field-label=\"Dica\"><input type=\"text\" class=\"form-control\" name=\"fieldTooltip\" ng-model=\"field.tooltip\"></div></div><div ng-if=\"fields.uploadurl\"><div fg-property-field=\"uploadurl\" fg-property-field-label=\"URL Plugin de Upload\"><input type=\"text\" class=\"form-control\" name=\"uploadurl\" ng-model=\"field.uploadurl\"></div></div>');
   $templateCache.put('angular-form-gen/edit/canvas/field/properties/property-field/field-value.ng.html', '<div ng-if=\"draw\"><div fg-property-field=\"fieldValue\" fg-property-field-label=\"Valor Inicial\"><div ng-transclude=\"\"></div></div></div>');
   $templateCache.put('angular-form-gen/edit/canvas/field/properties/property-field/property-field.ng.html', '<div class=\"form-group fg-property-field\" ng-class=\"{ \'has-error\': fieldPropertiesForm[fieldName].$invalid }\"><label class=\"col-sm-5 col-md-4 control-label\">{{ fieldLabel }}</label><div class=\"col-sm-7 col-md-8\"><div ng-transclude=\"\"></div><div fg-validation-summary=\"{{ fieldName }}\"></div></div></div>');
+  $templateCache.put('angular-form-gen/edit/canvas/field/properties/validation/validation-message.ng.html', '<div ng-form=\"valMsgForm\"><div fg-property-field=\"message\" fg-property-field-label=\"Mensagem\"><input type=\"text\" name=\"message\" title=\"{{ tooltip }}\" placeholder=\"Mensagem opcional\" ng-model=\"field.validation.messages[validationType]\" class=\"form-control\"></div></div>');
+  $templateCache.put('angular-form-gen/edit/canvas/field/properties/validation/validation.ng.html', '<div ng-if=\"fields.minlength\" class=\"fg-property-field-validation\"><div fg-property-field=\"minlength\" fg-property-field-label=\"Comprimento Mínimo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O comprimento mínimo de caracteres que deve ser digitado.\" name=\"minlength\" ng-model=\"field.validation.minlength\" class=\"form-control\"></div><div ng-if=\"field.validation.minlength >= 1\"><div fg-edit-validation-message=\"minlength\"></div></div></div><div ng-if=\"fields.maxlength\" class=\"fg-property-field-validation\"><div fg-property-field=\"maxlength\" fg-property-field-label=\"Comprimento Máximo\"><input type=\"text\" fg-field-redraw=\"\" fg-input-number=\"\" title=\"O comprimento máximo de caracteres que deve ser digitado.\" name=\"maxlength\" ng-model=\"field.validation.maxlength\" class=\"form-control\"></div><div ng-if=\"field.validation.maxlength >= 1\"><div fg-edit-validation-message=\"maxlength\"></div></div></div><div ng-if=\"fields.pattern\" class=\"fg-property-field-validation\"><div fg-property-field=\"pattern\" fg-property-field-label=\"Modelo\"><div fg-dropdown-input=\"patternOptions\" name=\"pattern\" title=\"O modelo que deve coincidir com o valor de entrada.\" fg-parse-pattern=\"\" fg-field-redraw=\"\" ng-model=\"field.validation.pattern\"></div></div><div ng-if=\"field.validation.pattern.length > 0\"><div fg-edit-validation-message=\"pattern\"></div></div></div><div ng-if=\"fields.required\" class=\"fg-property-field-validation\"><div fg-property-field=\"required\"><div class=\"checkbox\"><label title=\"Indica se é necessário um valor para este campo.\"><input type=\"checkbox\" ng-model=\"field.validation.required\">Requerido</label></div></div><div ng-if=\"field.validation.required\"><div fg-edit-validation-message=\"required\"></div></div></div>');
 }]);
 fg.directive('fgBindExpression', ["$interpolate", function ($interpolate) {
 
@@ -1470,6 +1470,32 @@ fg.directive('fgUniqueFieldName', function () {
   };
 });
 
+fg.filter('j$on',function () {
+  return function (input, displayHidden) {
+
+    if(displayHidden)
+      return JSON.stringify(input || {}, null, '  ');
+
+    return angular.toJson(input || {}, true);
+  };
+}).directive('jsonify', ["$window", "$filter", function ($window, $filter) {
+    return {
+      templateUrl: 'angular-form-gen/common/jsonify/jsonify.ng.html',
+      replace: true,
+      scope: {
+        jsonify: "=",
+        displayHidden: "@jsonifyDisplayHidden"
+      },
+      link: function($scope, $element, $attrs, ctrls) {
+        $scope.expression = $attrs.jsonify;
+
+        $scope.copy = function() {
+          $window.prompt ("Copy to clipboard: Ctrl+C, Enter", $filter('j$on')($scope.jsonify, $scope.displayHidden));
+        };
+      }
+    };
+  }]);
+
 fg.controller('fgTabsController', ["$scope", function ($scope) {
 
   this.items = [];
@@ -1586,32 +1612,38 @@ fg.directive('fgTabsPane', ["fgTabsPaneLinkFn", function(fgTabsPaneLinkFn) {
   };
 });
 
-fg.filter('j$on',function () {
-  return function (input, displayHidden) {
+fg.controller('fgEditPaletteController', ["$scope", "fgConfig", function ($scope, fgConfig) {
 
-    if(displayHidden)
-      return JSON.stringify(input || {}, null, '  ');
-
-    return angular.toJson(input || {}, true);
+  $scope.templates = [];
+  
+  var tmpls = fgConfig.fields.templates;
+  var i = tmpls.length;
+  
+  while(i--) {
+    var tmpl = tmpls[i];
+    
+    if(tmpl.editor && tmpl.editor.visible == false) {
+      continue;
+    }
+    
+    $scope.templates.unshift(angular.copy(tmpl));
+  }
+  
+  $scope.templateFilter = function (template) {
+    return !$scope.selectedCategory || $scope.selectedCategory[template.type];
   };
-}).directive('jsonify', ["$window", "$filter", function ($window, $filter) {
-    return {
-      templateUrl: 'angular-form-gen/common/jsonify/jsonify.ng.html',
-      replace: true,
-      scope: {
-        jsonify: "=",
-        displayHidden: "@jsonifyDisplayHidden"
-      },
-      link: function($scope, $element, $attrs, ctrls) {
-        $scope.expression = $attrs.jsonify;
-
-        $scope.copy = function() {
-          $window.prompt ("Copy to clipboard: Ctrl+C, Enter", $filter('j$on')($scope.jsonify, $scope.displayHidden));
-        };
-      }
-    };
-  }]);
-
+  
+}]);
+fg.directive('fgEditPalette',function () {
+  return {
+    require: ['^fgSchema'],
+    templateUrl: 'angular-form-gen/edit/palette/palette.ng.html',
+    controller: 'fgEditPaletteController',
+    link: function($scope, $element, $attrs, ctrls) {
+      $scope.schemaCtrl = ctrls[0];
+    }
+  };
+});
 fg.controller('fgEditCanvasController', ["$scope", "dqUtils", "$timeout", "fgUtils", function ($scope, dqUtils, $timeout, fgUtils) {
 
   $scope.dragPlaceholder = {
@@ -1720,38 +1752,6 @@ fg.directive('fgEditCanvas', function() {
   };
 });
 
-fg.controller('fgEditPaletteController', ["$scope", "fgConfig", function ($scope, fgConfig) {
-
-  $scope.templates = [];
-  
-  var tmpls = fgConfig.fields.templates;
-  var i = tmpls.length;
-  
-  while(i--) {
-    var tmpl = tmpls[i];
-    
-    if(tmpl.editor && tmpl.editor.visible == false) {
-      continue;
-    }
-    
-    $scope.templates.unshift(angular.copy(tmpl));
-  }
-  
-  $scope.templateFilter = function (template) {
-    return !$scope.selectedCategory || $scope.selectedCategory[template.type];
-  };
-  
-}]);
-fg.directive('fgEditPalette',function () {
-  return {
-    require: ['^fgSchema'],
-    templateUrl: 'angular-form-gen/edit/palette/palette.ng.html',
-    controller: 'fgEditPaletteController',
-    link: function($scope, $element, $attrs, ctrls) {
-      $scope.schemaCtrl = ctrls[0];
-    }
-  };
-});
 fg.controller('fgFieldController', ["$scope", "fgUtils", function($scope, fgUtils) {
 
   var self = this;
@@ -2025,6 +2025,128 @@ fg.directive('fgFieldUpload', function () {
         }
     };
 });
+fg.directive('fgFormFields', function() {
+
+  return {
+    require: ['^?fgForm'],
+    restrict: 'AE',
+    templateUrl: 'angular-form-gen/form/form-fields/form-fields.ng.html',
+    scope: {},
+    link: function($scope, $element, $attrs, ctrls) {
+
+      var fgForm = ctrls[0];
+
+      $scope.$watch(function() {
+        return fgForm.model;
+      }, function(value) {
+        $scope.form = value;
+      });
+    }
+  };
+
+});
+fg.controller('fgSchemaController', ["$scope", "fgUtils", function($scope, fgUtils) {
+
+  var _model;
+
+  this.model = function(value) {
+    if(value !== undefined) {
+      _model = value;
+
+      if(!angular.isArray(value.fields)) {
+        value.fields = [];
+      }
+    }
+    
+    return _model;
+  };
+
+  this.addField = function(field, index) {
+
+    var copy = fgUtils.copyField(field);
+
+    index = index === undefined ? _model.fields.length : index;
+    _model.fields.splice(index, 0, copy);
+
+  };
+
+  this.removeField = function(index) {
+    _model.fields.splice(index, 1);
+  };
+
+  this.swapFields = function(idx1, idx2) {
+    if (idx1 <= -1 || idx2 <= -1 || idx1 >= _model.fields.length || idx2 >= _model.fields.length) {
+      return;
+    }
+
+    _model.fields[idx1] = _model.fields.splice(idx2, 1, _model.fields[idx1])[0];
+  };
+
+  this.moveField = function(fromIdx, toIdx) {
+    if (fromIdx >= 0 && toIdx <= _model.fields.length && fromIdx !== toIdx) {
+      var field = _model.fields.splice(fromIdx, 1)[0];
+      if (toIdx > fromIdx)--toIdx;
+      _model.fields.splice(toIdx, 0, field);
+    }
+  };
+
+}]);
+fg.directive('fgSchema', ["fgSchemaLinkFn", function(fgSchemaLinkFn) {
+
+  return {
+    require: ['fgSchema'],
+    controller: 'fgSchemaController',
+    link: fgSchemaLinkFn
+  };
+
+}]).factory('fgSchemaLinkFn' , function() {
+  return function($scope, $element, $attrs, ctrls) {
+    var schemaCtrl = ctrls[0];
+
+    $scope.$watch($attrs.fgSchema, function(value) {
+      schemaCtrl.model(value);
+    });
+
+  };
+});
+
+
+fg.directive('fgAutocomplete', ["$timeout", "$http", function ($timeout, $http) {
+
+    return {
+        link: function ($scope, $element) {
+
+            // Ensure that the ng-repeat has finished by suspending the remove.
+
+            $timeout(function () {
+                var options = $scope.$parent.fieldSchema.options;
+                var id = $scope.$parent.form.data[$scope.$parent.fieldSchema.name];
+
+                if (id != undefined && id != '') {
+                    var params = [];
+                    params[options.valueAttr] = id;
+
+                    var data = {
+                        method: 'GET',
+                        url: options.url + '&action=find&id=' + id,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    };
+
+                    $http(data).then(
+                        function (res) {
+                            if (res.data.status == 'success') {
+                                $scope.temp = res.data[options.dataHolder][options.nameAttr];
+                            }
+                        }
+                    );
+                }
+            }, 0);
+        }
+    }
+}]);
+
 fg.directive('fgCheckboxlist', function () {
 
     function validateRequired(validation, value, options) {
@@ -2156,92 +2278,34 @@ fg.directive('fgSelectlist', ["$timeout", function($timeout) {
   }
 }]);
 
-fg.directive('fgFormFields', function() {
+fg.controller('fgEditPaletteCategoriesController', ["$scope", "fgConfig", function($scope, fgConfig) {
 
-  return {
-    require: ['^?fgForm'],
-    restrict: 'AE',
-    templateUrl: 'angular-form-gen/form/form-fields/form-fields.ng.html',
-    scope: {},
-    link: function($scope, $element, $attrs, ctrls) {
+  $scope.categories = fgConfig.fields.categories;
 
-      var fgForm = ctrls[0];
+  $scope.setCategory = function(name, category) {
+    $scope.categoryName = name;
+    $scope.category = category;
+  };
 
-      $scope.$watch(function() {
-        return fgForm.model;
-      }, function(value) {
-        $scope.form = value;
-      });
+  if(!$scope.category) {
+    //noinspection LoopStatementThatDoesntLoopJS
+    for (var name in $scope.categories) {
+      //noinspection JSUnfilteredForInLoop
+      $scope.setCategory(name, $scope.categories[name]);
+      break;
     }
-  };
-
-});
-fg.controller('fgSchemaController', ["$scope", "fgUtils", function($scope, fgUtils) {
-
-  var _model;
-
-  this.model = function(value) {
-    if(value !== undefined) {
-      _model = value;
-
-      if(!angular.isArray(value.fields)) {
-        value.fields = [];
-      }
-    }
-    
-    return _model;
-  };
-
-  this.addField = function(field, index) {
-
-    var copy = fgUtils.copyField(field);
-
-    index = index === undefined ? _model.fields.length : index;
-    _model.fields.splice(index, 0, copy);
-
-  };
-
-  this.removeField = function(index) {
-    _model.fields.splice(index, 1);
-  };
-
-  this.swapFields = function(idx1, idx2) {
-    if (idx1 <= -1 || idx2 <= -1 || idx1 >= _model.fields.length || idx2 >= _model.fields.length) {
-      return;
-    }
-
-    _model.fields[idx1] = _model.fields.splice(idx2, 1, _model.fields[idx1])[0];
-  };
-
-  this.moveField = function(fromIdx, toIdx) {
-    if (fromIdx >= 0 && toIdx <= _model.fields.length && fromIdx !== toIdx) {
-      var field = _model.fields.splice(fromIdx, 1)[0];
-      if (toIdx > fromIdx)--toIdx;
-      _model.fields.splice(toIdx, 0, field);
-    }
-  };
-
+  }
 }]);
-fg.directive('fgSchema', ["fgSchemaLinkFn", function(fgSchemaLinkFn) {
-
+fg.directive('fgEditPaletteCategories', function () {
   return {
-    require: ['fgSchema'],
-    controller: 'fgSchemaController',
-    link: fgSchemaLinkFn
-  };
-
-}]).factory('fgSchemaLinkFn' , function() {
-  return function($scope, $element, $attrs, ctrls) {
-    var schemaCtrl = ctrls[0];
-
-    $scope.$watch($attrs.fgSchema, function(value) {
-      schemaCtrl.model(value);
-    });
-
+    templateUrl: 'angular-form-gen/edit/palette/categories/categories.ng.html',
+    require: '^fgEditPalette',
+    scope: {
+      category: "=?"
+    },
+    controller: 'fgEditPaletteCategoriesController'
   };
 });
-
-
 fg.directive('fgEditCanvasField', ["$timeout", function ($timeout) {
 
   return {
@@ -2275,34 +2339,6 @@ fg.directive('fgEditCanvasField', ["$timeout", function ($timeout) {
   };
 
 }]);
-fg.controller('fgEditPaletteCategoriesController', ["$scope", "fgConfig", function($scope, fgConfig) {
-
-  $scope.categories = fgConfig.fields.categories;
-
-  $scope.setCategory = function(name, category) {
-    $scope.categoryName = name;
-    $scope.category = category;
-  };
-
-  if(!$scope.category) {
-    //noinspection LoopStatementThatDoesntLoopJS
-    for (var name in $scope.categories) {
-      //noinspection JSUnfilteredForInLoop
-      $scope.setCategory(name, $scope.categories[name]);
-      break;
-    }
-  }
-}]);
-fg.directive('fgEditPaletteCategories', function () {
-  return {
-    templateUrl: 'angular-form-gen/edit/palette/categories/categories.ng.html',
-    require: '^fgEditPalette',
-    scope: {
-      category: "=?"
-    },
-    controller: 'fgEditPaletteCategoriesController'
-  };
-});
 fg.directive('fgEditCanvasFieldProperties', ["fgUtils", function (fgUtils) {
 
   // To keep the form validation working, the contents of the tabs needs to be rendered even if the tab is not active.
@@ -2350,6 +2386,119 @@ fg.directive('fgEditCanvasFieldProperties', ["fgUtils", function (fgUtils) {
   };
 }]);
 
+fg.controller('fgPropertyFieldOptionsController', ["$scope", function($scope) {
+
+  var self = this;
+  var optionCounter = 1;
+
+  // Monitor for changes in the options array and ensure a
+  // watch for every option value.
+  // Watchers are deleted when removing options from the array.
+
+  $scope.$watchCollection('field.options', function(options) {
+    if (options) {
+      angular.forEach(options, function(option) {
+        if (!option.$_valueWatchFn) {
+          option.$_valueWatchFn = $scope.$watch(function() {
+            return option.value;
+          }, handleValueChange);
+        }
+      });
+    }
+  });
+
+  function handleValueChange(newValue, oldValue) {
+
+    // Called by the watch collection
+    // Ensure that when the selected value is changed, this
+    // is synced to the field value.
+
+    if (newValue !== oldValue) {
+      if ($scope.multiple) {
+        $scope.field.value[newValue] = $scope.field.value[oldValue];
+        delete $scope.field.value[oldValue];
+      } else {
+        if (oldValue === $scope.field.value) {
+          $scope.field.value = newValue;
+        }
+      }
+    }
+  }
+
+  this.toggleOption = function(optionValue) {
+
+    // Only used in multiple === false
+    // Allow the user to deselect an option from the list
+
+    if($scope.field.type !== 'selectlist' && optionValue === $scope.field.value) {
+      $scope.field.value = undefined;
+    }
+
+  };
+
+  this.addOption = function() {
+
+    if (!$scope.field.options) {
+      $scope.field.options = [];
+    }
+
+    var option = {
+      value: 'Option ' + optionCounter++
+    };
+
+    $scope.field.options.push(option);
+
+    var count = $scope.field.options.length;
+
+    if(!$scope.multiple && count === 1) {
+      $scope.field.value = option.value;
+    }
+
+  };
+
+  this.removeOption = function(index) {
+    var options = $scope.field.options.splice(index, 1);
+
+    if (options && options.length) {
+
+      var option = options[0];
+
+      if ($scope.multiple) {
+
+        if($scope.field.value[option.value] !== undefined)
+          delete $scope.field.value[option.value];
+
+      } else {
+
+        if (option.value === $scope.field.value && $scope.field.options.length) {
+          $scope.field.value = $scope.field.options[0].value;
+        }
+
+        option.$_valueWatchFn();
+      }
+    }
+  };
+
+}]);
+fg.directive('fgPropertyFieldOptions', ["fgPropertyFieldOptionsLinkFn", function(fgPropertyFieldOptionsLinkFn) {
+  return {
+    scope: true,
+    controller: 'fgPropertyFieldOptionsController as optionsCtrl',
+    templateUrl: 'angular-form-gen/edit/canvas/field/properties/options/options.ng.html',
+    link: fgPropertyFieldOptionsLinkFn
+  };
+}]).factory('fgPropertyFieldOptionsLinkFn', function() {
+  return function($scope, $element, $attrs, ctrls) {
+
+    $scope.multiple = false;
+
+    $attrs.$observe('fgPropertyFieldOptions', function(value) {
+      if(value === 'multiple') {
+        $scope.multiple = true;
+      }
+    });
+  };
+});
 fg.directive('fgPropertyFieldCommon', ["fgPropertyFieldCommonLinkFn", function(fgPropertyFieldCommonLinkFn) {
   return {
     restrict: 'AE',
@@ -2474,119 +2623,6 @@ fg.directive('fgPropertyField', ["fgPropertyFieldLinkFn", function(fgPropertyFie
       }
     });
 
-  };
-});
-fg.controller('fgPropertyFieldOptionsController', ["$scope", function($scope) {
-
-  var self = this;
-  var optionCounter = 1;
-
-  // Monitor for changes in the options array and ensure a
-  // watch for every option value.
-  // Watchers are deleted when removing options from the array.
-
-  $scope.$watchCollection('field.options', function(options) {
-    if (options) {
-      angular.forEach(options, function(option) {
-        if (!option.$_valueWatchFn) {
-          option.$_valueWatchFn = $scope.$watch(function() {
-            return option.value;
-          }, handleValueChange);
-        }
-      });
-    }
-  });
-
-  function handleValueChange(newValue, oldValue) {
-
-    // Called by the watch collection
-    // Ensure that when the selected value is changed, this
-    // is synced to the field value.
-
-    if (newValue !== oldValue) {
-      if ($scope.multiple) {
-        $scope.field.value[newValue] = $scope.field.value[oldValue];
-        delete $scope.field.value[oldValue];
-      } else {
-        if (oldValue === $scope.field.value) {
-          $scope.field.value = newValue;
-        }
-      }
-    }
-  }
-
-  this.toggleOption = function(optionValue) {
-
-    // Only used in multiple === false
-    // Allow the user to deselect an option from the list
-
-    if($scope.field.type !== 'selectlist' && optionValue === $scope.field.value) {
-      $scope.field.value = undefined;
-    }
-
-  };
-
-  this.addOption = function() {
-
-    if (!$scope.field.options) {
-      $scope.field.options = [];
-    }
-
-    var option = {
-      value: 'Option ' + optionCounter++
-    };
-
-    $scope.field.options.push(option);
-
-    var count = $scope.field.options.length;
-
-    if(!$scope.multiple && count === 1) {
-      $scope.field.value = option.value;
-    }
-
-  };
-
-  this.removeOption = function(index) {
-    var options = $scope.field.options.splice(index, 1);
-
-    if (options && options.length) {
-
-      var option = options[0];
-
-      if ($scope.multiple) {
-
-        if($scope.field.value[option.value] !== undefined)
-          delete $scope.field.value[option.value];
-
-      } else {
-
-        if (option.value === $scope.field.value && $scope.field.options.length) {
-          $scope.field.value = $scope.field.options[0].value;
-        }
-
-        option.$_valueWatchFn();
-      }
-    }
-  };
-
-}]);
-fg.directive('fgPropertyFieldOptions', ["fgPropertyFieldOptionsLinkFn", function(fgPropertyFieldOptionsLinkFn) {
-  return {
-    scope: true,
-    controller: 'fgPropertyFieldOptionsController as optionsCtrl',
-    templateUrl: 'angular-form-gen/edit/canvas/field/properties/options/options.ng.html',
-    link: fgPropertyFieldOptionsLinkFn
-  };
-}]).factory('fgPropertyFieldOptionsLinkFn', function() {
-  return function($scope, $element, $attrs, ctrls) {
-
-    $scope.multiple = false;
-
-    $attrs.$observe('fgPropertyFieldOptions', function(value) {
-      if(value === 'multiple') {
-        $scope.multiple = true;
-      }
-    });
   };
 });
 fg.directive('fgParsePattern', function() {

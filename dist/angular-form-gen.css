@@ -68,6 +68,60 @@ a:hover.tooltips span {
   text-shadow: none;
 }
 
+.fg-dropdown {
+  z-index: 50;
+}
+.fg-dropdown.open {
+  position: absolute;
+}
+.fg-dropdown .dropdown-menu {
+  position: static;
+  top: 0;
+  left: 0;
+  float: none;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.fg-field-inner .controls > div > .radio:first-child,
+.fg-field-inner .controls > div > .checkbox:first-child {
+  padding-top: 5px;
+}
+.fg-form .radio,
+.fg-form .checkbox {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.form-horizontal .fg-form .radio,
+.form-horizontal .fg-form .checkbox {
+  margin-bottom: 0px;
+}
+/**
+file upload
+ */
+.image-preview-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+  margin-left: 2px;
+}
+
 .form .fg-edit {
   margin-left: -15px;
   margin-right: -15px;
@@ -143,62 +197,78 @@ a:hover.tooltips span {
   pointer-events: auto;
 }
 
-.fg-dropdown {
-  z-index: 50;
-}
-.fg-dropdown.open {
-  position: absolute;
-}
-.fg-dropdown .dropdown-menu {
-  position: static;
-  top: 0;
-  left: 0;
-  float: none;
-  max-height: 250px;
-  overflow-y: auto;
-}
-
 .fg-validation-summary {
   margin-top: 10px;
 }
 
-.fg-field-inner .controls > div > .radio:first-child,
-.fg-field-inner .controls > div > .checkbox:first-child {
-  padding-top: 5px;
+/*.jsonify {*/
+/*position: relative;*/
+/*margin: 15px 0;*/
+/*padding: 39px 19px 14px;*/
+/*background-color: #fff;*/
+/*border: 1px solid #ddd;*/
+/*-webkit-border-radius: 4px;*/
+/*-moz-border-radius: 4px;*/
+/*border-radius: 4px;*/
+/*}*/
+/*.jsonify-label {*/
+/*position: absolute;*/
+/*top: -1px;*/
+/*left: -1px;*/
+/*padding: 3px 7px;*/
+/*font-size: 12px;*/
+/*font-weight: bold;*/
+/*background-color: #f5f5f5;*/
+/*border: 1px solid #ddd;*/
+/*color: #9da0a4;*/
+/*-webkit-border-radius: 4px 0 4px 0;*/
+/*-moz-border-radius: 4px 0 4px 0;*/
+/*border-radius: 4px 0 4px 0;*/
+/*}*/
+/*.jsonify-button {*/
+/*display: none;*/
+/*cursor: pointer;*/
+/*}*/
+/*.jsonify:hover .jsonify-button {*/
+/*display: inline-block;*/
+/*}*/
+.jsonify {
+  margin-top: 10px;
+  position: relative;
 }
-.fg-form .radio,
-.fg-form .checkbox {
-  margin-top: 0px;
-  margin-bottom: 5px;
+.jsonify .btn-toolbar-right {
+  right: 5px;
 }
-.form-horizontal .fg-form .radio,
-.form-horizontal .fg-form .checkbox {
+.jsonify .btn-toolbar {
+  position: absolute;
+  margin: 0px;
+  top: -10px;
+}
+
+.fg-tabs > .nav-tabs {
   margin-bottom: 0px;
 }
-/**
-file upload
- */
-.image-preview-input {
-  position: relative;
-  overflow: hidden;
-  margin: 0px;
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+.fg-tabs .tab-content {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0px 0px 4px 4px;
 }
-.image-preview-input input[type=file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
+
+.form .control-label,
+.fg-edit-palette .control-label {
+  float: none;
+  width: 100%;
+  text-align: left;
   padding: 0;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0);
 }
-.image-preview-input-title {
-  margin-left: 2px;
+.form .fg-field-inner > div,
+.form .fg-property-field > div,
+.fg-edit-palette .fg-field-inner > div {
+  margin-left: 0;
+  width: 100%;
+  float: none;
+  padding: 0;
 }
 
 .fg-edit-canvas .fg-field-properties .control-group {
@@ -292,50 +362,6 @@ file upload
   }
 }
 
-/*.jsonify {*/
-/*position: relative;*/
-/*margin: 15px 0;*/
-/*padding: 39px 19px 14px;*/
-/*background-color: #fff;*/
-/*border: 1px solid #ddd;*/
-/*-webkit-border-radius: 4px;*/
-/*-moz-border-radius: 4px;*/
-/*border-radius: 4px;*/
-/*}*/
-/*.jsonify-label {*/
-/*position: absolute;*/
-/*top: -1px;*/
-/*left: -1px;*/
-/*padding: 3px 7px;*/
-/*font-size: 12px;*/
-/*font-weight: bold;*/
-/*background-color: #f5f5f5;*/
-/*border: 1px solid #ddd;*/
-/*color: #9da0a4;*/
-/*-webkit-border-radius: 4px 0 4px 0;*/
-/*-moz-border-radius: 4px 0 4px 0;*/
-/*border-radius: 4px 0 4px 0;*/
-/*}*/
-/*.jsonify-button {*/
-/*display: none;*/
-/*cursor: pointer;*/
-/*}*/
-/*.jsonify:hover .jsonify-button {*/
-/*display: inline-block;*/
-/*}*/
-.jsonify {
-  margin-top: 10px;
-  position: relative;
-}
-.jsonify .btn-toolbar-right {
-  right: 5px;
-}
-.jsonify .btn-toolbar {
-  position: absolute;
-  margin: 0px;
-  top: -10px;
-}
-
 /*.fg-edit-palette .controls {*/
 /*margin-left: 0;*/
 /*width: 100%;*/
@@ -388,32 +414,6 @@ file upload
 /*width: auto;*/
 /*}*/
 /*}*/
-
-.fg-tabs > .nav-tabs {
-  margin-bottom: 0px;
-}
-.fg-tabs .tab-content {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0px 0px 4px 4px;
-}
-
-.form .control-label,
-.fg-edit-palette .control-label {
-  float: none;
-  width: 100%;
-  text-align: left;
-  padding: 0;
-}
-.form .fg-field-inner > div,
-.form .fg-property-field > div,
-.fg-edit-palette .fg-field-inner > div {
-  margin-left: 0;
-  width: 100%;
-  float: none;
-  padding: 0;
-}
 
 .fg-field-properties-container {
   max-height: 0;
