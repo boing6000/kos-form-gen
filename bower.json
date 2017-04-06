@@ -1,22 +1,42 @@
 {
-  "name": "angular-dynforms",
-  "version": "0.0.4",
-  "homepage": "https://github.com/danhunsaker/angular-dynamic-forms",
+  "name": "angular-formly",
   "authors": [
-    "Daniel Hunsaker <danhunsaker@gmail.com>"
+    "Astrism <astrisms@gmail.com>"
   ],
-  "description": "Build Forms in AngularJS From Nothing But JSON",
-  "main": "dynamic-forms.js",
+  "contributors": [
+    "Astrism <astrisms@gmail.com>",
+    "Kent C. Dodds <kent@doddsfamily.us>"
+  ],
+  "main": "dist/formly.js",
+  "description": "AngularJS directive which takes JSON representing a form and renders to HTML",
   "keywords": [
-    "angular",
-    "form"
+    "AngularJs",
+    "form",
+    "formly",
+    "json",
+    "html"
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "tests",
+    "local-examples",
+    ".editorconfig",
+    ".gitignore",
+    ".eslintrc",
+    ".npmignore",
+    ".travis.yml",
+    "CONTRIBUTING.md",
+    "karma.conf.js",
+    "src",
+    "webpack.config.js",
+    "coverage",
+    "other",
+    ".test",
+    "scripts"
+  ],
+  "dependencies": {
+    "angular": "^1.2.x",
+    "api-check": "^7.0.0"
+  }
 }
